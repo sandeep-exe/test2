@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .wordContainer {
+        text-align: center;
+        font-size: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 30px;
+        height:  95vh;
+    }
+    </style>
+</head>
+
+<body>
+    <button id="vowel">Give Vowel</button>
+    <button id="consonant">Give Consonant</button>
+    <div class="wordContainer">
+        <div id="word">
+        </div>
+    </div>
+    <script>
+    const vowel = document.getElementById("vowel");
+    const consonant = document.getElementById("consonant");
+    const wordE = document.getElementById("word");
+
+    let word = "";
+
+    const maxLength = 10;
+
+
+    const cons = ["B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z"];
+
+    const vow = ["A", "E", "I", "O", "U"];
+
+
+
+    consonant.addEventListener("click", () => {
+        if (word.length == maxLength) return;
+
+        const idx = Math.floor((Math.random() * cons.length));
+
+        if (idx == cons.length)
+            word += cons[cons.length - 1];
+        else
+            word += cons[idx];
+
+        wordE.innerHTML = word;
+    });
+
+
+    vowel.addEventListener("click", () => {
+        if (word.length == maxLength) return;
+
+        const idx = Math.floor((Math.random() * vow.length));
+
+        if (idx == vow.length)
+            word += vow[vow.length - 1];
+        else
+            word += vow[idx];
+
+        wordE.innerHTML = word;
+    });
+    </script>
+</body>
+
+</html>
